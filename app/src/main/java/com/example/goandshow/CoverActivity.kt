@@ -10,7 +10,7 @@ class CoverActivity : AppCompatActivity() {
 
     private lateinit var coverImage: ImageButton
     private val countdownInterval: Long = 1000 // 时间间隔1000毫秒
-    private val totalCountdownTime: Long = 5000 // 倒计时5000毫秒
+    private val totalCountdownTime: Long = 1000 // 倒计时5000毫秒
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

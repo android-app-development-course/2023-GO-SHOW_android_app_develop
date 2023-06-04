@@ -3,6 +3,7 @@ package com.example.goandshow
 import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import android.widget.FrameLayout
 import com.baidu.mapapi.SDKInitializer
 import com.baidu.mapapi.map.MapView
 
@@ -11,8 +12,13 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //获取地图控件引用
-        mMapView = findViewById<View>(R.id.bmapView) as MapView
+
+        // 从 DemoApplication 中获取 MapView
+        mMapView = (application as DemoApplication).mapView
+
+        // 获取布局中的 FrameLayout，将 MapView 添加到其中
+        val container = findViewById<FrameLayout>(R.id.map_view_container)
+        container.addView(mMapView)
 
         SDKInitializer.initialize(getApplicationContext())
     }

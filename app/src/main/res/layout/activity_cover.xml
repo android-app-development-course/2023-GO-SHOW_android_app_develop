@@ -23,7 +23,7 @@
         android:id="@+id/textView"
         android:layout_width="298dp"
         android:layout_height="93dp"
-        android:text="GOh&amp;"
+        android:text="GO&amp;"
         android:textSize="80sp"
         app:layout_constraintBottom_toBottomOf="@+id/coverImage"
         app:layout_constraintEnd_toEndOf="parent"

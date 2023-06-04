@@ -14,11 +14,15 @@
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <com.baidu.mapapi.map.MapView
-        android:id="@+id/bmapView"
+<!--百度提供的这个不行-->
+<!--    <com.baidu.mapapi.map.MapView-->
+<!--        android:id="@+id/bmapView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:clickable="true" />-->
+<!--换成这个android 自带的才行-->
+    <FrameLayout
+        android:id="@+id/map_view_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true" />
-
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
