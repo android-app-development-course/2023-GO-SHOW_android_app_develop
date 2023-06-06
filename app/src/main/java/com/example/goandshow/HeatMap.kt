@@ -58,9 +58,9 @@ fun setHeatmapProperties(locations: List<LatLng>): HeatMap {
 
     // 设置热力图渐变色用到的所有颜色数组
     val colors = intArrayOf(
-        Color.rgb(255, 0, 0),       // 红色
+        Color.rgb(0, 0, 200),       // 红色
         Color.rgb(0, 225, 0),       // 绿色
-        Color.rgb(0, 0, 200)        // 蓝色
+        Color.rgb(255, 0, 0)        // 蓝色
     )
 
     // 设置热力图渐变类
@@ -73,8 +73,8 @@ fun setHeatmapProperties(locations: List<LatLng>): HeatMap {
         .frameAnimation(frameAnimation)
         .gradient(gradient)
         .maxIntensity(3.1f)
-        .opacity(0.9)
-        .radius(10)
+        .radius(300)
+        .opacity(0.6)
         .build()
 
     return heatmap

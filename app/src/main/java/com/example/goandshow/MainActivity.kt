@@ -21,6 +21,12 @@ class MainActivity : Activity() {
         container.addView(mMapView)
 
         SDKInitializer.initialize(getApplicationContext())
+        // 添加热力图到地图
+        val baiduMap = mMapView!!.map
+        val locations = getLocations()
+        val heatmap = setHeatmapProperties(locations)
+        addHeatmapToMap(baiduMap, heatmap)
+
     }
 
     override fun onResume() {
