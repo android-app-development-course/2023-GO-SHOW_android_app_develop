@@ -6,6 +6,7 @@ import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.baidu.mapapi.CoordType
 import com.baidu.mapapi.SDKInitializer
 import com.baidu.mapapi.map.*
@@ -92,7 +93,8 @@ class DemoApplication : Application() {
             val name = marker.extraInfo.getString("title")
             val imageResId = marker.extraInfo.getString("imgid")
             val description = "这是 ${name} 的详细描述。"
-
+            Log.d("Marker Click", "点击了")
+            mapView!!.visibility = View.GONE
             // 创建 Intent 对象并传递参数
             val intent = Intent(this, PlaceDetailActivity::class.java).apply {
                 putExtra("name", name)

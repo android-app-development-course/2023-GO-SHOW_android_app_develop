@@ -27,6 +27,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".PlaceDetailActivity"/>
 
         <!--地图组件-->
         <meta-data
