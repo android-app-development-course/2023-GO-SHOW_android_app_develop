@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
             if (isValidCredentials(email, password)) {
                 // 登录成功，进行相应的操作
                 showToast("Login successful")
-                val intent = Intent(this, MainActivity3::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
