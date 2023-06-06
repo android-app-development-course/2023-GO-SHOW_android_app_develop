@@ -37,7 +37,10 @@ fun getLocations(): List<LatLng> {
         LatLng(23.00225, 113.33383),      // 欢乐老爷车
         LatLng(23.00633, 113.33671),      // 古堡餐厅
         LatLng(23.00490, 113.33651),      // 椰林餐厅
-        LatLng(23.00411, 113.33761)       // 部落茶餐厅
+        LatLng(113.33850, 23.00651), // 十环过山车2
+        LatLng(113.33846, 23.00655), // 十环过山车3
+        LatLng(113.33844, 23.00647), // 十环过山车4
+
     )
 
     locations.addAll(attractions)
@@ -73,8 +76,8 @@ fun setHeatmapProperties(locations: List<LatLng>): HeatMap {
         .frameAnimation(frameAnimation)
         .gradient(gradient)
         .maxIntensity(3.1f)
-        .radius(300)
-        .opacity(0.6)
+        .radius(200)
+        .opacity(0.7)
         .build()
 
     return heatmap
