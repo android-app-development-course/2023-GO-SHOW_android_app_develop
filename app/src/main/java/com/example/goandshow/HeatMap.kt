@@ -69,7 +69,9 @@ fun getLocations(): List<LatLng> {
         LatLng(23.00296, 113.33689), // 宝贝乐园4
         LatLng(23.00277, 113.33310), // 游客服务中心 南门
         LatLng(23.00182, 113.33597), // 长隆演播厅1
-        LatLng(23.00177, 113.33594) // 长隆演播厅2
+        LatLng(23.00177, 113.33594), // 长隆演播厅2
+        LatLng(23.00647, 113.33834), // 十环过山车5
+        LatLng(23.00639, 113.33837) // 十环过山车6
     )
 
     locations.addAll(attractions)
@@ -105,6 +107,7 @@ fun setHeatmapProperties(locations: List<LatLng>): HeatMap {
         .frameAnimation(frameAnimation)
         .gradient(gradient)
         .maxIntensity(3.1f)
+        .minIntensity(-0.1f)
         .radius(200)
         .opacity(0.7)
         .build()
