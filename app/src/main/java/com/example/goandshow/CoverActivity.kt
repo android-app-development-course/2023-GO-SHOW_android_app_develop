@@ -1,16 +1,17 @@
 package com.example.goandshow
-
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
+
 class CoverActivity : AppCompatActivity() {
 
     private lateinit var coverImage: ImageButton
     private val countdownInterval: Long = 1000 // 时间间隔1000毫秒
-    private val totalCountdownTime: Long = 1000 // 倒计时5000毫秒
+    private val totalCountdownTime: Long = 5000 // 倒计时5000毫秒
+    private var isPageRedirected: Boolean = false // 标志变量
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +23,21 @@ class CoverActivity : AppCompatActivity() {
             // 倒计时时可触发的事件：点击图片跳转页面
             override fun onTick(millisUntilFinished: Long) {
                 coverImage.setOnClickListener {
-                    val intent = Intent(this@CoverActivity, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    if (!isPageRedirected) { // 检查是否已经跳转
+                        isPageRedirected = true // 设置标志为已跳转
+                        val intent = Intent(this@CoverActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                 }
             }
             // 倒计时结束时触发的事件：自动跳转页面
             override fun onFinish() {
-                val intent = Intent(this@CoverActivity, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+                if (!isPageRedirected) { // 检查是否已经跳转
+                    val intent = Intent(this@CoverActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }
         }.start()
     }
