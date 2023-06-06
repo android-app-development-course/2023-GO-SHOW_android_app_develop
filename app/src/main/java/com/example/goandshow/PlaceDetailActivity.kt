@@ -14,18 +14,21 @@ class PlaceDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place_detail)
-        // 获取传递的景点信息
         val intent = intent
-        val name = intent.getStringExtra("name")
-        val imageResId = intent.getStringExtra("imageResId")
+        val name = intent.getStringExtra("title")
+        val imageName = intent.getStringExtra("imgid")
         val description = intent.getStringExtra("description")
 
         // 显示景点信息
         val placeImage = findViewById<ImageView>(R.id.place_image)
         val placeName = findViewById<TextView>(R.id.place_name)
         val placeDescription = findViewById<TextView>(R.id.place_description)
-        //placeImage.setImageResource(imageResId)
 
+        // 获取图片资源ID
+        val resId = resources.getIdentifier(imageName, "drawable", "com.example.goandshow")
+
+        // 设置图片资源
+        placeImage.setImageResource(resId)
 
         placeName.text = name
         placeDescription.text = description
