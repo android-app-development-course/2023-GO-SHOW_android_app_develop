@@ -1,9 +1,13 @@
 package com.example.goandshow
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 
 import android.widget.FrameLayout
+import android.widget.Switch
+import androidx.appcompat.widget.SwitchCompat
 import com.baidu.mapapi.CoordType
 import com.baidu.mapapi.SDKInitializer
 import com.baidu.mapapi.map.*
@@ -14,6 +18,7 @@ import com.baidu.mapapi.model.LatLng
 class MainActivity : Activity() {
     private var mapView: MapView? = null
 
+    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -86,7 +91,7 @@ class MainActivity : Activity() {
             markerList.add(marker)
         }
 
-// 设置标记点击事件监听器
+        // 设置标记点击事件监听器
         baiduMap.setOnMarkerClickListener(object : OnMarkerClickListener {
             override fun onMarkerClick(marker: Marker): Boolean {
                 // 获取所选标记的信息
@@ -106,4 +111,26 @@ class MainActivity : Activity() {
                 return true
             }
         })
+        // 热力图开关监听器
+        val switchCompat = findViewById<SwitchCompat>(R.id.interactiveSwitch)
+        switchCompat.setOnCheckedChangeListener { buttonView, isChecked ->
+            // 在这里处理开关状态改变的逻辑
+            if (isChecked) {
+                // 开关打开时的逻辑
+                // TODO: 执行开关打开时的操作
+                Log.d("打开了","hh")
+            } else {
+                // 开关关闭时的逻辑
+                // TODO: 执行开关关闭时的操作
+                Log.d("关闭了","hh")
+            }
+        }
+
+
+
+
+
+
+
+
     }}
