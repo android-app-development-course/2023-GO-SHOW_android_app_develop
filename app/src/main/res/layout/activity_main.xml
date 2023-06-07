@@ -17,8 +17,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="163dp">
 
-        c
     </FrameLayout>
+
+
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/interactiveSwitch"
@@ -34,6 +35,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/map_view_container"
         app:layout_constraintStart_toStartOf="@+id/map_view_container"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="179dp"
+        android:layout_height="156dp"
+        android:foreground="@drawable/cryptopunk"
+
+
+        app:circularflow_angles="60"
+        app:layout_constraintStart_toStartOf="@+id/map_view_container"
+        app:layout_constraintTop_toTopOf="@+id/map_view_container" />
 
 
 
