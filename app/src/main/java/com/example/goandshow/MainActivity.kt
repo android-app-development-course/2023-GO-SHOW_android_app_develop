@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 
 import android.widget.FrameLayout
-import android.widget.Switch
+
 import androidx.appcompat.widget.SwitchCompat
 import com.baidu.mapapi.CoordType
 import com.baidu.mapapi.SDKInitializer
@@ -119,10 +119,24 @@ class MainActivity : Activity() {
                 // 开关打开时的逻辑
                 // TODO: 执行开关打开时的操作
                 Log.d("打开了","hh")
+                SDKInitializer.initialize(getApplicationContext())
+                // 添加热力图到地图
+
+                val locations = getLocations()
+                val heatmap = setHeatmapProperties(locations)
+                addHeatmapToMap(baiduMap, heatmap)
+
+
             } else {
                 // 开关关闭时的逻辑
                 // TODO: 执行开关关闭时的操作
                 Log.d("关闭了","hh")
+                // 关闭热力图
+                val location = getLocations()
+                val hide = hideHeatmap(location)
+
+
+                addHeatmapToMap(baiduMap,hide)
             }
         }
 
