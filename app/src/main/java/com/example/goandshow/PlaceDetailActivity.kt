@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 class PlaceDetailActivity : AppCompatActivity() {
 
     private var mUserName: String? = null
+    private lateinit var commentAdapter: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,7 @@ class PlaceDetailActivity : AppCompatActivity() {
 
         // 获取评论列表和适配器
         val commentList = findViewById<ListView>(R.id.comment_list)
-        val commentAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
+        commentAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1)
         commentList.adapter = commentAdapter
 
         // 注册提交按钮的点击事件
@@ -62,7 +63,30 @@ class PlaceDetailActivity : AppCompatActivity() {
 
                 // 更新评论列表视图
                 commentAdapter.notifyDataSetChanged()
+
+                // 保存评论数据到Shared Preferences
+                saveCommentsToSharedPreferences(commentAdapter)
             }
         }
+
+        // 从Shared Preferences中获取之前保存的评论数据
+        val comments = preferences.getStringSet("comments", emptySet())
+
+        // 将评论数据添加到评论适配器中
+        if (comments != null) {
+            commentAdapter.addAll(comments)
+        }
+    }
+
+    private fun saveCommentsToSharedPreferences(commentAdapter: ArrayAdapter<String>) {
+        val comments = mutableListOf<String>()
+        for (i in 0 until commentAdapter.count) {
+            comments.add(commentAdapter.getItem(i) ?: "")
+        }
+
+        val preferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+        val editor = preferences.edit()
+        editor.putStringSet("comments", comments.toSet())
+        editor.apply()
     }
 }
