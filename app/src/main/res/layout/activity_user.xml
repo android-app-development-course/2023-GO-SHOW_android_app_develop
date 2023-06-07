@@ -140,18 +140,19 @@
         app:layout_constraintVertical_bias="0.027"
         app:srcCompat="?attr/homeAsUpIndicator" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView2"
         android:layout_width="86dp"
         android:layout_height="83dp"
-        android:foreground="@drawable/cryptopunk"
+        android:src="@drawable/cryptopunk"
+        android:onClick="uploadImage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.083"
-        tools:srcCompat="@drawable/cryptopunk" />
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
