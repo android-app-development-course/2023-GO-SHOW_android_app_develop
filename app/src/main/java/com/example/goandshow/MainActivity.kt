@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 
 import android.widget.FrameLayout
+import android.widget.ImageButton
+import android.widget.ImageView
 
 import androidx.appcompat.widget.SwitchCompat
 import com.baidu.mapapi.CoordType
@@ -127,8 +129,7 @@ class MainActivity : Activity() {
                 addHeatmapToMap(baiduMap, heatmap)
 
 
-            } else {
-                // 开关关闭时的逻辑
+            } else {                // 开关关闭时的逻辑
                 // TODO: 执行开关关闭时的操作
                 Log.d("关闭了","hh")
                 // 关闭热力图
@@ -139,12 +140,14 @@ class MainActivity : Activity() {
                 addHeatmapToMap(baiduMap,hide)
             }
         }
+        // 头像点击监听器
+        val head_pro = findViewById<ImageView>(R.id.imageView3)
 
+        head_pro.setOnClickListener{
+            val intent = Intent(this,UserActivity::class.java)
+            startActivity(intent)
 
-
-
-
-
+        }
 
 
     }}
