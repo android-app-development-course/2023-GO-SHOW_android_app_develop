@@ -26,8 +26,15 @@ class MainActivity : Activity() {
         val locations = getLocations()
         val heatmap = setHeatmapProperties(locations)
         addHeatmapToMap(baiduMap, heatmap)
+        // 关闭热力图
+//        val baidumap = mMapView!!.map
+//        val location = getLocations()
+//        val hide = hideHeatmap(location)
+//        addHeatmapToMap(baidumap,hide)
+
 
     }
+
 
     override fun onResume() {
         super.onResume()

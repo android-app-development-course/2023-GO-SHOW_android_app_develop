@@ -114,6 +114,40 @@ fun setHeatmapProperties(locations: List<LatLng>): HeatMap {
 
     return heatmap
 }
+fun hideHeatmap(locations: List<LatLng>): HeatMap {
+    // 获取多帧热力图数据集
+    val datas = listOf(locations)
+
+    // 设置开始动画属性：开启初始动画，时长100毫秒，动画缓动函数类型为线性
+    val initAnimation = HeatMapAnimation(true, 100, HeatMapAnimation.AnimationType.Linear)
+
+    // 设置帧动画属性：开启帧动画，时长800毫秒，动画缓动函数类型为线性
+    val frameAnimation = HeatMapAnimation(true, 800, HeatMapAnimation.AnimationType.Linear)
+
+    // 设置热力图渐变色用到的所有颜色数组
+    val colors = intArrayOf(
+        Color.rgb(0, 0, 200),       // 红色
+        Color.rgb(0, 225, 0),       // 绿色
+        Color.rgb(255, 0, 0)        // 蓝色
+    )
+
+    // 设置热力图渐变类
+    val gradient = Gradient(colors, floatArrayOf(0.3f, 0.7f, 1f))
+
+    // 创建热力图对象
+    val heatmap = HeatMap.Builder()
+        .datas(datas)
+        .initAnimation(initAnimation)
+        .frameAnimation(frameAnimation)
+        .gradient(gradient)
+        .maxIntensity(3.1f)
+        .minIntensity(-0.1f)
+        .radius(200)
+        .opacity(0.0)
+        .build()
+
+    return heatmap
+}
 
 // 添加热力图到地图
 fun addHeatmapToMap(baiduMap: BaiduMap, heatmap: HeatMap) {
