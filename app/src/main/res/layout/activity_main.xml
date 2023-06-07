@@ -45,7 +45,7 @@
         android:layout_marginTop="5dp"
         android:clickable="true"
 
-        android:foreground="@android:drawable/ic_menu_my_calendar"
+        android:foreground="@drawable/setting"
         app:circularflow_angles="60dp"
         app:circularflow_radiusInDP="60dp"
         app:layout_constraintStart_toStartOf="@+id/map_view_container"

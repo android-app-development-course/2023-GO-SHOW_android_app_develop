@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/icon_loc_pink" />
+        android:src="@drawable/button_style" />
 
     <TextView
         android:id="@+id/place_name"
