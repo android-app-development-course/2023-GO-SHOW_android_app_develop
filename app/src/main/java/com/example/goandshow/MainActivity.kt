@@ -121,7 +121,7 @@ class MainActivity : Activity() {
             if (isChecked) {
                 // 开关打开时的逻辑
                 // TODO: 执行开关打开时的操作
-                Log.d("打开了","hh")
+                Log.d("打开了","")
                 SDKInitializer.initialize(getApplicationContext())
                 // 添加热力图到地图
 
@@ -132,7 +132,7 @@ class MainActivity : Activity() {
 
             } else {                // 开关关闭时的逻辑
                 // TODO: 执行开关关闭时的操作
-                Log.d("关闭了","hh")
+                Log.d("关闭了","")
                 // 关闭热力图
                 val location = getLocations()
                 val hide = hideHeatmap(location)
