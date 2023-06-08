@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 
 import android.widget.FrameLayout
 import android.widget.ImageButton
@@ -66,7 +67,7 @@ class MainActivity : Activity() {
             MarkerInfo(LatLng(23.00501974572703, 113.33553043924663), "丛林探险四维影院", "cinema" ,"亚洲先进四维影院，将为广大游客带来极致的观影体验,四维影院完全突破了传统电影的概念，在运用最新三维立体影像科技的基础上，通过高精尖电脑程控技术和高科技机械设备的配合，制造出神奇的四维特技效果，影院中，震动、强风、水柱、激光、烟雾、爆炸等现场特技效果与立体影像同步发生，充分调动起观众的视觉、听觉和触觉感官神经，获得模拟实地感受"),
             MarkerInfo(LatLng(23.00298471184537, 113.33518269552779), "垂直过山车", "roster","设计灵感和理念来自人类最初的飞翔梦想，它模拟了空中之王——雄鹰的各种空中绝技。最高落差达60米，相当于20层楼的落差，为亚洲垂直下落距离第二高的垂直下坠过山车，轨道全长981米，是世界上最长的垂直下坠过山车，拥有近90度垂直俯冲和冲浪体验，最高时速达112公里/小时,逍遥搏击任飞翔，彩虹绘出真体验，就让我们一起尽情去体验过山车带来的巅峰感受吧。"),
             MarkerInfo(LatLng(23.009647091816618, 113.33135622408854), "大喇叭餐厅", "canteen","大喇叭餐厅主打麻辣香锅，远远经过就能闻到扑鼻而来的香气，如果你是吃辣一族一定要去试试，让你吃得舒心，辣得过过瘾！大喇叭餐厅位于大喇叭设施及漂流河旁，环境优雅舒适，如果你不能吃辣也没有关系，我们还专门准备了口味清淡的套餐汤粉等，总有一款适合你。"),
-            MarkerInfo(LatLng(23.006496769775065, 113.33850293972448), "十环过山车", "ten_roster","十环过山车，时而盘旋上升，时而骤然反转，时而急速骤降……下一环会有什么呢？该过山车轨道长度850米，高30米，最高时速72.4km/h，单次乘坐时长1分32秒。在广州番禺长隆欢乐世界可看到在树丛后若隐若现的鲜艳的橙色轨道，高低盘旋，从眼前一直延伸到远处，这就是园中曾经创下翻滚数最多的过山车之一的吉尼斯世界纪录的“十环过山车”。"),
+            MarkerInfo(LatLng(23.00649676977506, 113.33850293972448), "十环过山车", "ten_roster","十环过山车，时而盘旋上升，时而骤然反转，时而急速骤降……下一环会有什么呢？该过山车轨道长度850米，高30米，最高时速72.4km/h，单次乘坐时长1分32秒。在广州番禺长隆欢乐世界可看到在树丛后若隐若现的鲜艳的橙色轨道，高低盘旋，从眼前一直延伸到远处，这就是园中曾经创下翻滚数最多的过山车之一的吉尼斯世界纪录的“十环过山车”。"),
 
             MarkerInfo(LatLng(23.00454582822114, 113.33140648714722), "巨蟒滑道", "snake","“巨蟒”滑道是一个肾上腺素冲击之旅，时刻将充满这“下一秒将会怎样？”的新奇体验。从弯形盘旋滑道划出后会进入长达6米的全封闭滑道——MEGA tube，它将给游客一个独一无二的体验，集合了扭转，螺旋和振动的感觉，绝对能让您乐而忘返。")
         )
@@ -148,6 +149,17 @@ class MainActivity : Activity() {
             startActivity(intent)
 
         }
+        val search = findViewById<Button>(R.id.search_button)
+
+        search.setOnClickListener{
+            Log.d("we","点击了")
+            val point = LatLng(23.009647091816618, 113.33135622408854)
+            val builder = MapStatus.Builder()
+            builder.target(point).zoom(20f)
+            baiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()))
+
+        }
+
 
 
     }}
