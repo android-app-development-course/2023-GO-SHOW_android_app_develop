@@ -1,6 +1,7 @@
 package com.example.goandshow
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -37,7 +38,19 @@ class SignUpActivity : AppCompatActivity() {
                 showToast("Different Password Entered!")
                 return@setOnClickListener
             }
+
+            // 创建SharedPreferences对象
+            val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
+
+            // 将用户信息写入SharedPreferences文件
+            val editor = sharedPreferences.edit()
+            editor.putString("user_name", signUpUserName.text.toString())
+            editor.putString("user_email", signUpEmailAddress.text.toString())
+            editor.putString("user_password", signUpPassword.text.toString())
+            editor.apply()
+
             val db = dbHelper.writableDatabase
+
             val value = ContentValues().apply {
                 put("user_name", signUpUserName.text.toString())
                 put("user_email", signUpEmailAddress.text.toString())

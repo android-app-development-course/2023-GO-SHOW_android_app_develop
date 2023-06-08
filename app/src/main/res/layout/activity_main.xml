@@ -1,28 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarSize="30dp"
+    android:scrollbarStyle="outsideInset"
     tools:context=".MainActivity">
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Hello World!"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-<!--百度提供的这个不行-->
-<!--    <com.baidu.mapapi.map.MapView-->
-<!--        android:id="@+id/bmapView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:clickable="true" />-->
-<!--换成这个android 自带的才行-->
+
     <FrameLayout
         android:id="@+id/map_view_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/edittext_style"
+        android:hint="大喇叭餐厅"
+        app:layout_constraintEnd_toStartOf="@+id/search_button"
+        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="94dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="15dp"
+        android:text="search"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/interactiveSwitch"
+        android:layout_width="176dp"
+        android:layout_height="81dp"
+        android:layout_margin="16dp"
+        android:allowUndo="false"
+        android:text="热力图"
+
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/map_view_container"
+        app:layout_constraintStart_toStartOf="@+id/map_view_container"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:clickable="true"
+
+        android:foreground="@drawable/setting"
+        app:circularflow_angles="60dp"
+        app:circularflow_radiusInDP="60dp"
+        app:layout_constraintStart_toStartOf="@+id/map_view_container"
+        app:layout_constraintTop_toTopOf="@+id/map_view_container"
+        app:srcCompat="@drawable/button_style" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
