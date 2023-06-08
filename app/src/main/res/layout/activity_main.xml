@@ -10,6 +10,7 @@
     android:scrollbarStyle="outsideInset"
     tools:context=".MainActivity">
 
+
     <FrameLayout
         android:id="@+id/map_view_container"
         android:layout_width="match_parent"
